@@ -1,27 +1,34 @@
 <h1>Sign up for my awesome app!</h1>
-<%= form_for @user do |f| %>
-  <%= render 'shared/error_messages' %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <br />
-  
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-  
-  <br />
-  
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  
-  <br />
-  
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-  
-  <br />
-  
-  <%= f.submit %>
-
+<%= form_for @user, :html => { :class => 'form-horizontal', :multipart => true } do |f| %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :email, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :email, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :password, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.password_field :password, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label 'Confirm Password', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.password_field :password_confirmation, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                users_path, :class => 'btn' %>
+  </div>
 <% end %>
+
