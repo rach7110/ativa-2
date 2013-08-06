@@ -6,6 +6,7 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'bcrypt-ruby', '3.0.1'
 
 
 # Gems used only for assets and not required
@@ -27,9 +28,8 @@ gem 'haml-rails'
 gem 'therubyracer', :platforms => :ruby
 gem 'twitter-bootstrap-rails'
 gem 'less-rails'
-gem 'figaro'
-gem 'rmagick'
 gem 'carrierwave'
+gem 'rmagick'
 
 
 # To use ActiveModel has_secure_password

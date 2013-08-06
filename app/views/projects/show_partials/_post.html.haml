@@ -12,4 +12,9 @@
 	.span1
 	.span11
 		%p= @post.message
-		%iframe{height: "1000", width:"100%", frameBorder: "0", src: @post.attachment_url(:medium)}
+		- if @post.attachment?
+			= image_tag @post.attachment_url(:medium), height: "1000", width:"100%"
+		- else
+			%h4.pagination-centered= link_to '=== === === You need to upload an attachment! === === ===', project_partial_url(@project.id, params[:phase], 'edit_post', post_id: @post.id)
+
+

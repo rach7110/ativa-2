@@ -1,0 +1,36 @@
+%br
+%br
+%br
+%br
+
+.row-fluid
+  .span4.offset4
+    %h1.pagination-centered Sign Up
+
+%div
+  = form_for @user do |f|
+    .row-fluid
+      .span4.offset4
+        .control-group
+          .controls
+            = f.text_field :name, :placeholder => "name", :value => "", :class => "span12"
+    .row-fluid
+      .span4.offset4
+        .control-group
+          .controls
+            = f.text_field :email, :placeholder => "email", :value => "", :class => "span12"
+    .row-fluid
+      .span4.offset4
+        .control-group
+          .controls
+            = f.password_field :password, :placeholder => "type your password", :value => "", :class => "span12"
+    .row-fluid
+      .span4.offset4
+        .control-group
+          .controls
+            = f.password_field :password_confirmation, :placeholder => "confirm your password", :value => "", :class => "span12"
+    .row-fluid
+      .span4.offset4
+        .submitbox
+          .actions
+            = f.submit 'Sign Up', :class => "btn btn-block btn-primary btn-large"

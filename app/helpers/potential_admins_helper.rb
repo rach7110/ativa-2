@@ -1,0 +1,2 @@
+module PotentialAdminsHelper
+end
