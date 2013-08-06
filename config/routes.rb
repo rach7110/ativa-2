@@ -13,6 +13,7 @@ Ativa::Application.routes.draw do
   match '/signin', to: 'sessions#new', via: 'get', as: 'signin'
   match '/signout', to: 'sessions#destroy', via: 'delete'
 
+  post '/potential_admins' => 'potential_admins#create'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
