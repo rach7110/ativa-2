@@ -1,0 +1,43 @@
+.row_fluid
+	.span10.offset1
+		%h2
+			Users
+			%small= link_to "Add User", new_user_path
+
+.row-fluid
+	.span10.offset1
+		%table.table.table-bordered.table-hover
+			%thead
+				%tr
+					%th.span6 Name
+					%th.span6 Email
+			%tbody
+				- @clients.each do |user|
+					%tr
+						%td
+							= link_to user.name, user_path(user.id)
+						%td= user.email
+- if is_signed_in?
+	.row_fluid
+		.span10.offset1
+			%h2
+				Admins
+				%small Below are all the admin users. Feel free to submit another.
+
+	.row-fluid
+		.span10.offset1
+			%table.table.table-bordered.table-hover
+				%thead
+					%tr
+						%th.span6 Name
+						%th.span6 Email
+				%tbody
+					- @admins.each do |user|
+						%tr
+							%td
+								= link_to user.name, user_path(user.id)
+							%td= user.email
+					%tr
+						= form_for @admin do |f|
+							%td= f.text_field :email, placeholder: "Email address"
+							%td= f.submit "Add Admin"
