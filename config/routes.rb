@@ -12,7 +12,7 @@ Ativa::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   match '/signup', to: 'users#new', via: 'get'
-  match '/signin', to: 'sessions#new', via: 'get'
+  match '/signin', to: 'sessions#new', via: 'get', as: 'sign_in'
   match '/signout', to: 'sessions#destroy', via: 'delete'
 
   post '/potential_admins' => 'potential_admins#create', as: 'potential_admins'

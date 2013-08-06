@@ -21,6 +21,7 @@ class UsersController < ApplicationController
   def index
 	  @clients = Client.all
     @admins = Admin.all
-    @admin = PotentialAdmin.new
+    @potential = PotentialAdmin.new
+    @potentials = PotentialAdmin.all
   end
 end
