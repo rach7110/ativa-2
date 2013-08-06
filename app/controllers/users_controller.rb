@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def create
-	  @user = Client.new(params[:user])
+	  @user = User.new(params[:user])
 	  if @user.save
       UserMailer.signup_confirmation(@user).deliver
 		  flash[:success] = "Welcome to my awesome app!"
@@ -19,9 +19,18 @@ class UsersController < ApplicationController
   end
 
   def index
-	  @clients = Client.all
-    @admins = Admin.all
-    @potential = PotentialAdmin.new
-    @potentials = PotentialAdmin.all
+    @users = User.all
   end
 end
+
+
+
+
+ if PotentialAdmin.find_by_email(admin.email) && PotentialAdmin.find_by_generated_number(params[:admin][:generated_number])
+      if generated_number == PotentialAdmin.find_by_email(admin.email).generated_number.to_s && admin.save
+        PotentialAdmin.find_by_email(admin.email).destroy
+        redirect_to sign_in_path
+      else redirect_to admin_new_path(generated_number: generated_number)
+      end
+    else redirect_to admin_new_path(generated_number: generated_number)
+    end

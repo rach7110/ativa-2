@@ -9,6 +9,7 @@
 Project.destroy_all
 Phase.destroy_all
 Post.destroy_all
+User.destroy_all
 
 phases = ['onboarding','creative', 'design', 'development', 'implementation']
 
@@ -34,11 +35,10 @@ puts "Added projects"
 
 users = ["Shehzan", "Matt", "Harsh", "Shaan", "Ravi"]
 users.each do |u|
-  User.create(name: u, email: "#{u}@themakersquare.com", password: "makersquare", password_confirmation: "makersquare")
+  User.create(name: u, email: "#{u}@themakersquare.com", password: "password", password_confirmation: "password")
 end
 
 puts "Added users"
-
 
 messages = [
 	"Mousepads grammarians hailinator what Taylor Sager bootstrap Shannon, Heroku soda! Induction toss The best way to attract women to coding is when they're girls. Support up blog: potluck framework error! Alfred workshop coffee A should Krista whiteboard board, issues create! Student fatfinger toss backpacks; unicorns milk map calendar challenges. Use fat photoshop window Nature Nathaniel Lydia - container. Yoga JQuery everywhere in damn rake, Alfred happy? Inheritance Dropbox what Austin be shit pizza, Uno read punctuation? Jenga else we couch test array idea instance shit; charge.",
@@ -62,3 +62,5 @@ end
 
 puts "Added posts to every project (without an image)"
 puts "Upload some images!"
+
+
